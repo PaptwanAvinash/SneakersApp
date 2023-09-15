@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Sneakers App</string>
+    <string name="add_to_cart">Add to Cart</string>
+    <string name="rupees">₹</string>
+    <string name="total">Total :</string>
+    <string name="checkout">Checkout</string>
+</resources>
