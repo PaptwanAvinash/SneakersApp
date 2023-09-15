@@ -5,7 +5,7 @@ source code for sneakers app
 below details show information Screen wise
 
 Screen 1 : Home Screen
-contain list of shoes in a recyclerView with Grid layout manager 2 item per row.
+list of shoes in a recyclerView with Grid layout (2 item per row).
 for now we are using dummy data for products.
 click on any product will redirect you to detail page.
 
