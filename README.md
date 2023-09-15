@@ -19,6 +19,13 @@ Screen 3 : Cart Screen
 Screen 4 : Search Screen
 * User can search product from n items.(for now items are generated locally.)
 
+Unit TestCases 
+* Insert
+* Delete
+* DeleteAll
+* increase quantity
+* decrease quantity
+
 
 Tech:
 Room framework
@@ -35,6 +42,8 @@ RxJava
 
 Coroutines
 * any operation that need to move from Main Thread to separate thread coroutines are used. 
+
+Junit test cases library for Unit test cases
 
 
 Thansk 

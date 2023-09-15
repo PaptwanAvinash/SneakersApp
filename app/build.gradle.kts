@@ -33,30 +33,25 @@ android {
     java {
         toolchain.languageVersion.set(JavaLanguageVersion.of(11))
     }
-    /*compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
-*/
+
     buildFeatures {
         viewBinding=true
     }
-    //dataBinding { enable=true }
-
-
 }
 
 dependencies {
+    val roomVersion="2.5.2"
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.9.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+
+    //unit testcases
+    implementation("androidx.test.ext:junit-ktx:1.1.5")
+    testImplementation ("androidx.room:room-testing:$roomVersion")
+    testImplementation ("junit:junit:4.13.2")
+    testImplementation ("com.google.truth:truth:1.1.2")
+    testImplementation ("org.robolectric:robolectric:4.5.1")
 
     //coroutines
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
@@ -78,9 +73,9 @@ dependencies {
     kapt ("com.github.bumptech.glide:compiler:4.9.0")
 
     //room
-    implementation ("androidx.room:room-runtime:2.5.2")
-    kapt ("androidx.room:room-compiler:2.5.2")
-    implementation("androidx.room:room-ktx:2.5.2")
+    implementation ("androidx.room:room-runtime:$roomVersion")
+    kapt ("androidx.room:room-compiler:$roomVersion")
+    implementation("androidx.room:room-ktx:$roomVersion")
 
     //shimmer
     implementation ("com.facebook.shimmer:shimmer:0.5.0")
@@ -89,6 +84,7 @@ dependencies {
     //RxJava
     implementation ("io.reactivex.rxjava3:rxjava:3.0.13")
     implementation ("io.reactivex.rxjava3:rxandroid:3.0.0")
+
 
 
 }
