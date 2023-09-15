@@ -12,7 +12,7 @@ import kotlin.random.Random
 class SearchProductRepository @Inject constructor(){
 
     private val productNames= arrayListOf("Nike","Reebok","Boots","Adidas","Asic")
-    val productList:ArrayList<ShoesDetailModel> = arrayListOf()
+    private val productList:ArrayList<ShoesDetailModel> = arrayListOf()
     init {
         createShoesList()
     }

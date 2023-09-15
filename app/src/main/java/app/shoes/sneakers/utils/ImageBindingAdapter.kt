@@ -5,8 +5,6 @@ import android.webkit.URLUtil
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 
-
-
 fun setImageUrl(view: ImageView, imageUrl: String?) {
     runCatching {
         if (!TextUtils.isEmpty(imageUrl) && URLUtil.isValidUrl(imageUrl))

@@ -7,6 +7,7 @@ import app.shoes.sneakers.ui.cart.repo.UserCartRepository
 import app.shoes.sneakers.ui.home.models.ShoesDetailModel
 import app.shoes.sneakers.utils.BaseResponse
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
@@ -20,27 +21,19 @@ class CartViewModel @Inject constructor(
     val cartItems=cartRepository.getCartItem()
 
     fun addProduct(model: EntityShoes){
-        viewModelScope.launch {
-            cartRepository.addProduct(viewModelScope,model)
-        }
+        cartRepository.addProduct(viewModelScope,model)
     }
 
     fun deleteAllProduct(model: EntityShoes){
-        viewModelScope.launch {
-            cartRepository.deleteAllProduct(viewModelScope,model)
-        }
+        cartRepository.deleteAllProduct(viewModelScope,model)
     }
 
     fun clearDatabase(){
-        viewModelScope.launch {
-            cartRepository.clearDatabase(viewModelScope)
-        }
+        cartRepository.clearDatabase(viewModelScope)
     }
 
     fun reduceQuantity(model: EntityShoes){
-        viewModelScope.launch {
-            cartRepository.reduceQuantity(viewModelScope,model)
-        }
+        cartRepository.reduceQuantity(viewModelScope,model)
     }
 
 }

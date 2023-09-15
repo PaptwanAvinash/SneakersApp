@@ -12,7 +12,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
-class ShoesDetailRepository @Inject constructor(private val cartDAO: CartDAO) {
+class ShoesDetailRepository @Inject constructor() {
 
 
     fun getShoesDetail(model: ShoesDetailModel)= flow {
@@ -26,13 +26,6 @@ class ShoesDetailRepository @Inject constructor(private val cartDAO: CartDAO) {
 
     private suspend fun getShoesDetailAsync(model: ShoesDetailModel):BaseResponse<ShoesDetailModel>{
         delay(600)
-
-       /* //fetching local data and increase quantity if have
-        val entity=cartDAO.getProductDetail(model.id)
-
-        if (entity!=null){
-            model.quantity=entity.quantity
-        }*/
         return BaseResponse.Success(model)
     }
 

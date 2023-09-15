@@ -4,6 +4,8 @@ import androidx.lifecycle.MutableLiveData
 import app.shoes.sneakers.db.dao.CartDAO
 import app.shoes.sneakers.db.entities.EntityShoes
 import app.shoes.sneakers.ui.home.models.ShoesDetailModel
+import app.shoes.sneakers.utils.errorHandlerScope
+import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -11,12 +13,14 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 
-class AddCartRepository @Inject constructor(private val cartDAO: CartDAO) {
+class AddCartRepository @Inject constructor(private val cartDAO: CartDAO,
+                                            private val errorHandler: CoroutineExceptionHandler) {
 
     val addProductLiveData = MutableLiveData<Boolean>()
 
     fun addProduct(coroutineScope: CoroutineScope, model: ShoesDetailModel){
-        coroutineScope.launch(Dispatchers.IO) {
+        errorHandlerScope(coroutineScope,errorHandler)
+            .launch(Dispatchers.IO) {
             addProductLiveData.postValue(false)
             delay(1000)
             cartDAO.getProductDetail(model.id).let {
